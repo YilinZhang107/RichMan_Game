@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * 绘制层类 ： 背景类，xxx  的抽象类
+ * 绘制层类 ： 背景刷新类，土地、房屋、玩家刷新类，信息提示框  的抽象类
  * 
  * 继承Panel容器类
  * 
@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  */
 
 public abstract class Layer extends JPanel{
-	
+
 	/**
 	 * 窗口左上角x坐标
 	 */
@@ -137,4 +137,7 @@ public abstract class Layer extends JPanel{
 	 * 开始游戏panel设置
 	 */
 	abstract public void stratPanel();
+	
+	//为了去感叹号自动加的
+	private static final long serialVersionUID = 1L;
 }
