@@ -6,40 +6,40 @@ import javax.swing.JLabel;
 import util.FrameUtil;
 
 /**
- * å¼€å§‹é€‰äººå‰çš„ç­‰å¾…ç•Œé¢
- * @author å–ç‡•éº¦ç²¥çš„107
+ * ¿ªÊ¼Ñ¡ÈËÇ°µÄµÈ´ı½çÃæ
+ * @author ºÈÑàÂóÖàµÄ107
  *
  */
 public class WaitFrame extends JFrame{
 
 	public WaitFrame() {
-		//è®¾ç½®åå­—
-		this.setTitle("RichMan_Gameâ€”â€”byï¼šJava");
+		//ÉèÖÃÃû×Ö
+		this.setTitle("RichMan_Game¡ª¡ªby£ºJava");
 		
-		//è®¾ç½®é»˜è®¤é¡¶éƒ¨æ å±æ€§
+		//ÉèÖÃÄ¬ÈÏ¶¥²¿À¸ÊôĞÔ
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/**
-		 * è®¾ç½®çª—å£å¤§å°
-		 * å’Œé€‰äººç•Œé¢ä¸€æ ·å¤§
+		 * ÉèÖÃ´°¿Ú´óĞ¡
+		 * ºÍÑ¡ÈË½çÃæÒ»Ñù´ó
 		 */
 		this.setSize(380, 370);
 		
-		//ä¸å…è®¸ç”¨æˆ·æ”¹å˜çª—å£å¤§å°
+		//²»ÔÊĞíÓÃ»§¸Ä±ä´°¿Ú´óĞ¡
 		this.setResizable(false);
 		
 		/**
-		 * å±…ä¸­
-		 * UTILåŒ…ä¸­çš„è‡ªå®šä¹‰ç±»æ–¹æ³•
+		 * ¾ÓÖĞ
+		 * UTIL°üÖĞµÄ×Ô¶¨ÒåÀà·½·¨
 		 */
 		FrameUtil.setFrameCenter(this);
 		
-		add(new JLabel("åŠ è½½ä¸­ï¼Œè¯·ç¨å...", JLabel.CENTER));
+		add(new JLabel("¼ÓÔØÖĞ£¬ÇëÉÔºó...", JLabel.CENTER));
 		
-		//ä½¿ä¹‹æ˜¾ç°
+		//Ê¹Ö®ÏÔÏÖ
 		setVisible(true);
 	}
 	
-	//ä¸ºäº†å»æ„Ÿå¹å·è‡ªåŠ¨åŠ çš„
+	//ÎªÁËÈ¥¸ĞÌ¾ºÅ×Ô¶¯¼ÓµÄ
 	private static final long serialVersionUID = 1L;
 }

@@ -11,85 +11,85 @@ import model.buildings.Building;
 
 
 /**
- * æˆ¿å±‹åˆ·æ–°å±‚
+ * ·¿ÎİË¢ĞÂ²ã
  * 
- * @author å–ç‡•éº¦ç²¥çš„107
+ * @author ºÈÑàÂóÖàµÄ107
  *
  */
 public class Buildings extends Layer{
 
 	/**
-	 * åŠ è½½æˆ¿å±‹ä¿¡æ¯
+	 * ¼ÓÔØ·¿ÎİĞÅÏ¢
 	 */
 	private BuildingsModel informationBuilding;
 	
 	/**
-	 * æˆ¿å±‹é“¾è¡¨
+	 * ·¿ÎİÁ´±í
 	 */
 	private List<Building> building;
 	
 	/**
-	 * house å›¾ç‰‡1-5çº§åˆ«
-	 * ç©å®¶1çš„æˆ¿å­
+	 * house Í¼Æ¬1-5¼¶±ğ
+	 * Íæ¼Ò1µÄ·¿×Ó
 	 */
 	private Image HOUSE_01 = new ImageIcon("images/buliding/house01.png").getImage();
 	
 	/**
-	 * house å›¾ç‰‡1-5çº§åˆ«
-	 * ç©å®¶2çš„æˆ¿å­
+	 * house Í¼Æ¬1-5¼¶±ğ
+	 * Íæ¼Ò2µÄ·¿×Ó
 	 */
 	private Image HOUSE_02 = new ImageIcon("images/buliding/house02.png").getImage();
 	
 	/**
-	 * ä¼ªé€æ˜å›¾ç‰‡
+	 * Î±Í¸Ã÷Í¼Æ¬
 	 */
 	public Image TRANSPARENT = new ImageIcon("images/window/transparent.png").getImage();
 	
-	//æ„é€ å‡½æ•°
+	//¹¹Ôìº¯Êı
 	protected Buildings(int x, int y, int w, int h, BuildingsModel infor) {
 		super(x, y, w, h);
 		this.informationBuilding = infor;
 	}
 	
 	public void paint(Graphics g) {
-		//ç»˜åˆ¶å»ºç­‘ç‰©
+		//»æÖÆ½¨ÖşÎï
 		paintBuildings(g);
 	}
 	
-	//ç»˜åˆ¶å»ºç­‘ç‰©å®ç°æ–¹æ³•
+	//»æÖÆ½¨ÖşÎïÊµÏÖ·½·¨
 	private void paintBuildings(Graphics g) {
 		for(Building temp: this.building) {
-			//æˆ¿å±‹ç»˜åˆ¶ (æ³¨æ„è¿™ä¸ªæ–¹æ³•åå­—æ²¡æœ‰s)
+			//·¿Îİ»æÖÆ (×¢ÒâÕâ¸ö·½·¨Ãû×ÖÃ»ÓĞs)
 			paintBuilding(temp, g);
 		}
 	}
 	
 	/**
-	 * çœŸæ­£çš„ç»˜åˆ¶å»ºç­‘ç‰©å®ç°æ–¹æ³•
+	 * ÕæÕıµÄ»æÖÆ½¨ÖşÎïÊµÏÖ·½·¨
 	 */
 	private void paintBuilding(Building building, Graphics g) {
 		int x = 0;
 		int y = 0;
-		//getOwner çœ‹åå­—å°±çŸ¥é“æ˜¯è·å–æˆ¿å±‹æ‰€æœ‰è€…
+		//getOwner ¿´Ãû×Ö¾ÍÖªµÀÊÇ»ñÈ¡·¿ÎİËùÓĞÕß
 		if(building.getOwner() != null) {
-			int level = building.getLevel(); //è·å–å½“å‰æˆ¿å±‹ç­‰çº§
-			int i = building.getPosX(); //è·å–æˆ¿å±‹ä½ç½®
+			int level = building.getLevel(); //»ñÈ¡µ±Ç°·¿ÎİµÈ¼¶
+			int i = building.getPosX(); //»ñÈ¡·¿ÎİÎ»ÖÃ
 			int j = building.getPosY();
-			//è‹¥å¢åŠ ç©å®¶æ•°é‡ï¼Œæ­¤å¤„ä¹Ÿéœ€è¦æ”¹
+			//ÈôÔö¼ÓÍæ¼ÒÊıÁ¿£¬´Ë´¦Ò²ĞèÒª¸Ä
 			Image temp = building.getOwner().getNumber() == 1? this.HOUSE_01:HOUSE_02;
-			//æˆ¿å­çš„å›¾ç‰‡ä¹Ÿæ˜¯60*60çš„
+			//·¿×ÓµÄÍ¼Æ¬Ò²ÊÇ60*60µÄ
 			if(level > 0) {
-				//drawIamgeçš„å‚æ•°è¯¦è§ui.layerç±»
+				//drawIamgeµÄ²ÎÊıÏê¼ûui.layerÀà
 				g.drawImage(temp, x+j*60, y+i*60-(temp.getHeight(null)-60),
 						x+(j+1)*60, y+(i+1)*60, 60*(level-1), 0,
 						60*level, temp.getHeight(null), null);
 			}
-			//è¦†ç›–é€æ˜ç™½æ¡
+			//¸²¸ÇÍ¸Ã÷°×Ìõ
 			g.drawImage(this.TRANSPARENT, x+j*60, y+i*60, x+(j+1)*60,
 					y+(i+1)*60, 0, 0, 60, 60, null);
 			
-			// æˆ¿å±‹æ‹¥æœ‰è€…çš„åå­—æ˜¾ç¤º
-			g.drawString(""+building.getOwner().getName(), x+j*60+4, y+i*60+14);//ä¸ºä»€ä¹ˆè¦åŠ ä¸ª14ï¼Ÿ
+			// ·¿ÎİÓµÓĞÕßµÄÃû×ÖÏÔÊ¾
+			g.drawString(""+building.getOwner().getName(), x+j*60+4, y+i*60+14);//ÎªÊ²Ã´Òª¼Ó¸ö14£¿
 		}
 	}
 
@@ -98,6 +98,6 @@ public class Buildings extends Layer{
 		this.building = this.informationBuilding.getBuilding();
 	}
 	
-	//å»æ„Ÿå¹å·è‡ªåŠ¨æ·»åŠ çš„
+	//È¥¸ĞÌ¾ºÅ×Ô¶¯Ìí¼ÓµÄ
 	private static final long serialVersionUID = 1L;
 }

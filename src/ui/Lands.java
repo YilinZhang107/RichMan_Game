@@ -6,27 +6,27 @@ import java.awt.Image;
 import model.LandModel;
 
 /**
- * åœŸåœ°åˆ·æ–°å±‚
- * åœ¨ç©ºç™½åœ°å›¾ä¸Šç”»å‡ºå„ä¸ªå»ºç­‘çš„å›¾ç‰‡
+ * ÍÁµØË¢ĞÂ²ã
+ * ÔÚ¿Õ°×µØÍ¼ÉÏ»­³ö¸÷¸ö½¨ÖşµÄÍ¼Æ¬
  * 
- * @author å–ç‡•éº¦ç²¥çš„107
+ * @author ºÈÑàÂóÖàµÄ107
  *
  */
 public class Lands extends Layer{
 
 	/**
-	 * åœŸåœ°æ¨¡å‹
-	 * ModelåŒ…å†…çš„LandModelè‡ªå®šä¹‰ç±»
+	 * ÍÁµØÄ£ĞÍ
+	 * Model°üÄÚµÄLandModel×Ô¶¨ÒåÀà
 	 */
 	private LandModel land = null;
 	
 	/**
-	 * åœŸåœ°å›¾ç‰‡
+	 * ÍÁµØÍ¼Æ¬
 	 */
 	private Image landsIMG = null;
 
 	/**
-	 * æ„é€ å‡½æ•°
+	 * ¹¹Ôìº¯Êı
 	 * @param x
 	 * @param y
 	 * @param w
@@ -40,8 +40,8 @@ public class Lands extends Layer{
 	}
 	
 	/**
-	 * å¿…é¡»å®ç°çš„ç»§æ‰¿æ–¹æ³•
-	 * åœŸåœ°ç»˜åˆ¶
+	 * ±ØĞëÊµÏÖµÄ¼Ì³Ğ·½·¨
+	 * ÍÁµØ»æÖÆ
 	 */
 	@Override
 	public void paint(Graphics g) {
@@ -50,8 +50,8 @@ public class Lands extends Layer{
 	}
 	
 	/**
-	 * æ‰€æœ‰å›¾æ ‡éƒ½è¢«é›†ä¸­åœ¨ä¸€ä¸ª660*60çš„é•¿æ–¹å½¢å›¾ç‰‡ä¸­ï¼Œå•ä¸ªåœ°ç‚¹å›¾ç‰‡ä¸º60*60
-	 * è½½å…¥çš„å›¾ç‰‡åœ¨LandModelä¸­ä¿®æ”¹
+	 * ËùÓĞÍ¼±ê¶¼±»¼¯ÖĞÔÚÒ»¸ö660*60µÄ³¤·½ĞÎÍ¼Æ¬ÖĞ£¬µ¥¸öµØµãÍ¼Æ¬Îª60*60
+	 * ÔØÈëµÄÍ¼Æ¬ÔÚLandModelÖĞĞŞ¸Ä
 	 * 
 	 */
 	private void paintLands(Graphics g) {
@@ -60,7 +60,7 @@ public class Lands extends Layer{
 		for(int i = 0; i < land.getLand().length; i++) {
 			for(int j = 0; j < land.getLand()[i].length; j++) {
 				if(land.getLand()[i][j] != 0) {
-					//å›¾ç‰‡éƒ¨åˆ†æ˜¾ç¤º
+					//Í¼Æ¬²¿·ÖÏÔÊ¾
 					g.drawImage(landsIMG, x + j*60, y + i*60, x +(j+1)*60,
 							y +(i+1)*60, (land.getLand()[i][j]-1)*60, 0 ,
 							land.getLand()[i][j]*60, 60, null);
@@ -71,9 +71,9 @@ public class Lands extends Layer{
 		
 	@Override
 	public void stratPanel() {
-		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹	
+		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù	
 	}
 	
-	//å»æ„Ÿå¹å·è‡ªåŠ¨åŠ çš„
+	//È¥¸ĞÌ¾ºÅ×Ô¶¯¼ÓµÄ
 	private static final long serialVersionUID = 1L;	
 }

@@ -6,25 +6,25 @@ import java.awt.Image;
 import model.BackgroundModel;
 
 /**
- * èƒŒæ™¯æ›´æ–°å±‚
+ * ±³¾°¸üĞÂ²ã
  * 
- * @author å–ç‡•éº¦ç²¥çš„107
+ * @author ºÈÑàÂóÖàµÄ107
  *
  */
 public class Background extends Layer{
 	
 	/**
-	 * èƒŒæ™¯å›¾ç‰‡
+	 * ±³¾°Í¼Æ¬
 	 */
 	private Image bg = null;
 	
 	/**
-	 * èƒŒæ™¯æ¨¡å‹
-	 * BackgroundModelè‡ªå®šä¹‰ç±»ä½äºmodelåŒ…ä¸­
+	 * ±³¾°Ä£ĞÍ
+	 * BackgroundModel×Ô¶¨ÒåÀàÎ»ÓÚmodel°üÖĞ
 	 */
 	private BackgroundModel background = null;
 	
-	//ä¸ºä»€ä¹ˆJPaneGameä¸­ä¼šæ„å»ºBackgroundï¼ŒBackGroundä¸­åˆèƒ½å…ˆæ„å»ºJPaneGameï¼Ÿ
+	//ÎªÊ²Ã´JPaneGameÖĞ»á¹¹½¨Background£¬BackGroundÖĞÓÖÄÜÏÈ¹¹½¨JPaneGame£¿
 	private JPanelGame panel;
 	
 	protected Background(int x, int y, int w, int h, BackgroundModel background, JPanelGame panel) {
@@ -34,13 +34,13 @@ public class Background extends Layer{
 		this.panel = panel;
 	}
 	
-	//ç»˜åˆ¶èƒŒæ™¯
+	//»æÖÆ±³¾°
 	public void paint(Graphics g) {
 		this.paintBg(g);
 	}
 	
 	/**
-	 * èƒŒæ™¯ç»˜åˆ¶æ–¹æ³•
+	 * ±³¾°»æÖÆ·½·¨
 	 */
 	public void paintBg(Graphics g) {
 		g.drawImage(this.bg, 0, 0, this.bg.getWidth(null),
@@ -50,31 +50,31 @@ public class Background extends Layer{
 
 	@Override
 	public void stratPanel() {
-		//è‡ªåŠ¨ç”Ÿæˆçš„å¿…é¡»å®ç°çš„æ–¹æ³•
-		//getBgæ˜¯modelåŒ…BackgroundModelç±»çš„æ–¹æ³•
+		//×Ô¶¯Éú³ÉµÄ±ØĞëÊµÏÖµÄ·½·¨
+		//getBgÊÇmodel°üBackgroundModelÀàµÄ·½·¨
 		this.bg = background.getBg();
 	}
 	
 	/**
-	 * å°†çª—ä½“éšè—
+	 * ½«´°ÌåÒş²Ø
 	 * 
-	 * JLayeredPaneåŒä¸€å±‚å†…çš„ç»„ä»¶å¯ä»¥é€šè¿‡ä»¥ä¸‹ä¸¤ä¸ªæ–¹æ³•è°ƒæ•´åœ¨å±‚å†…çš„ä½ç½®
-	 * ç§»åŠ¨ç»„ä»¶åˆ°å…¶æ‰€åœ¨å±‚çš„æœ€åº•éƒ¨ä½ç½®
+	 * JLayeredPaneÍ¬Ò»²ãÄÚµÄ×é¼ş¿ÉÒÔÍ¨¹ıÒÔÏÂÁ½¸ö·½·¨µ÷ÕûÔÚ²ãÄÚµÄÎ»ÖÃ
+	 * ÒÆ¶¯×é¼şµ½ÆäËùÔÚ²ãµÄ×îµ×²¿Î»ÖÃ
 	 */
 	public void moveToBack() {
 		this.panel.getLayeredPane().moveToBack(this);
 	}
 	
 	/**
-	 * å°†çª—ä½“æ˜¾ç°
+	 * ½«´°ÌåÏÔÏÖ
 	 * 
-	 * åŒä¸Š
-	 * ç§»åŠ¨ç»„ä»¶åˆ°å…¶æ‰€åœ¨å±‚çš„æœ€é¡¶éƒ¨ä½ç½®
+	 * Í¬ÉÏ
+	 * ÒÆ¶¯×é¼şµ½ÆäËùÔÚ²ãµÄ×î¶¥²¿Î»ÖÃ
 	 */
 	public void moveToFront() {
 		this.panel.getLayeredPane().moveToFront(this);
 	}
 	
-	// ä¸ºäº†å»æ„Ÿå¹å·è‡ªåŠ¨æ·»åŠ çš„
+	// ÎªÁËÈ¥¸ĞÌ¾ºÅ×Ô¶¯Ìí¼ÓµÄ
 	private static final long serialVersionUID = 1L;
 }

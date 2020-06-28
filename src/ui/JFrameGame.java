@@ -7,43 +7,43 @@ import util.FrameUtil;
 public class JFrameGame extends JFrame{
 	
 	/**
-	 * æ¸¸æˆè¿›è¡Œè¿‡ç¨‹ä¸­çš„ç•Œé¢
-	 * é»˜è®¤ä¸»panel(é¢æ¿)
+	 * ÓÎÏ·½øĞĞ¹ı³ÌÖĞµÄ½çÃæ
+	 * Ä¬ÈÏÖ÷panel(Ãæ°å)
 	 */
 	private JPanelGame panelGame = null;
 	
 	public JFrameGame() {
 		/**
-		 * è®¾ç½®åå­—
-		 * æ˜¯æ¸¸æˆè¿è¡Œè¿‡ç¨‹ä¸­çª—å£ä¸Šçš„åå­— 
+		 * ÉèÖÃÃû×Ö
+		 * ÊÇÓÎÏ·ÔËĞĞ¹ı³ÌÖĞ´°¿ÚÉÏµÄÃû×Ö 
 		 */
-		this.setTitle("RichMan_Gameâ€”â€”byï¼šJava");
+		this.setTitle("RichMan_Game¡ª¡ªby£ºJava");
 		
-		//è®¾ç½®é»˜è®¤çª—å£çš„åŠŸèƒ½ï¼ˆæœ€å°åŒ–ï¼Œå…¨å±ï¼Œå…³é—­ï¼‰
+		//ÉèÖÃÄ¬ÈÏ´°¿ÚµÄ¹¦ÄÜ£¨×îĞ¡»¯£¬È«ÆÁ£¬¹Ø±Õ£©
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/**
-		 * è®¾ç½®çª—å£å¤§å°
-		 * æ­¤å¤§å°ä¸ºæ¸¸æˆè¿è¡Œæ—¶çš„å¤§å°,æ ¹æ®èƒŒæ™¯å¤§å°æ¥è°ƒæ•´
+		 * ÉèÖÃ´°¿Ú´óĞ¡
+		 * ´Ë´óĞ¡ÎªÓÎÏ·ÔËĞĞÊ±µÄ´óĞ¡,¸ù¾İ±³¾°´óĞ¡À´µ÷Õû
 		 */
 		this.setSize(750+200, 650);
 		
-		//ä¸å…è®¸ç”¨æˆ·æ”¹å˜çª—å£å¤§å°
+		//²»ÔÊĞíÓÃ»§¸Ä±ä´°¿Ú´óĞ¡
 		this.setResizable(false);
 		
 		/**
-		 * å±…ä¸­
-		 * è‡ªå®šä¹‰çš„utilåŒ…ä¸­FrameUtilç±»çš„æ–¹æ³•
+		 * ¾ÓÖĞ
+		 * ×Ô¶¨ÒåµÄutil°üÖĞFrameUtilÀàµÄ·½·¨
 		 */
 		FrameUtil.setFrameCenter(this);
 		
-		//è®¾ç½®é»˜è®¤Panel
+		//ÉèÖÃÄ¬ÈÏPanel
 		this.panelGame = new JPanelGame();
 		add(this.panelGame);
 		
 		/**
-		 * è®¾ç½®è¾¹æ¡†æ˜¾ç¤º
-		 * ä¸ºtrueæ—¶ç±»ä¼¼å…¨å±çŠ¶æ€ï¼Œæ²¡æœ‰é¡¶éƒ¨çš„è¾¹æ¡†å’ŒEXIT_ON_CLOSEæŒ‰é”®
+		 * ÉèÖÃ±ß¿òÏÔÊ¾
+		 * ÎªtrueÊ±ÀàËÆÈ«ÆÁ×´Ì¬£¬Ã»ÓĞ¶¥²¿µÄ±ß¿òºÍEXIT_ON_CLOSE°´¼ü
 		 */
 		this.setUndecorated(false);		
 	}

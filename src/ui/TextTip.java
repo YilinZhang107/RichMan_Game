@@ -9,52 +9,52 @@ import javax.swing.ImageIcon;
 import model.TextTipModel;
 
 /**
- * ä¿¡æ¯æç¤ºæ¡†
- * æˆåŠŸè´­ä¹°æˆ¿å±‹ã€å› æŸäº‹æ— æ³•è¡ŒåŠ¨ã€è·å¾—ç‚¹å·çš„æç¤ºæ¡†ï¼ŒçŸ­æš‚å‡ºç°ä¸€æ®µæ—¶é—´
+ * ĞÅÏ¢ÌáÊ¾¿ò
+ * ³É¹¦¹ºÂò·¿Îİ¡¢ÒòÄ³ÊÂÎŞ·¨ĞĞ¶¯¡¢»ñµÃµã¾íµÄÌáÊ¾¿ò£¬¶ÌÔİ³öÏÖÒ»¶ÎÊ±¼ä
  * 
- * @author å–ç‡•éº¦ç²¥çš„1007
+ * @author ºÈÑàÂóÖàµÄ1007
  * 
  */
 public class TextTip extends Layer{
 
-	//æç¤ºæ¡†æ¨¡å‹
+	//ÌáÊ¾¿òÄ£ĞÍ
 	private TextTipModel textTip = null;
 	
-	//è½½å…¥æç¤ºæ¡†å›¾ç‰‡
+	//ÔØÈëÌáÊ¾¿òÍ¼Æ¬
 	private Image bg = new ImageIcon("image/window/tip_01.png").getImage();
 	
 	/**
-	 * Point:ç‚¹ç±»
-	 * æˆå‘˜å˜é‡æœ‰:x,y
+	 * Point:µãÀà
+	 * ³ÉÔ±±äÁ¿ÓĞ:x,y
 	 */
 	private Point pointWindow = null;
 	
 	protected TextTip(int x, int y, int w, int h, TextTipModel textTip) {
 		super(x, y, w, h);
 		
-		//ç”¨æ¥ç¡®å®šä½ç½®çš„
+		//ÓÃÀ´È·¶¨Î»ÖÃµÄ
 		this.pointWindow = new Point((x + w) /2, (y + h) / 2);
 		this.textTip = textTip;
 	}
 
 	@Override
 	public void paint(Graphics g) {
-		//ç»˜åˆ¶ä¿¡æ¯é¢æ¿
+		//»æÖÆĞÅÏ¢Ãæ°å
 		paintTextTip(g, this);
 		
 	}
 	
 	/**
-	 * ç»˜åˆ¶ä¿¡æ¯é¢æ¿
+	 * »æÖÆĞÅÏ¢Ãæ°å
 	 */
 	private void paintTextTip(Graphics g, TextTip textTip2) {
 		/**
-		 * ä»¥ä¸‹ç”¨åˆ°çš„tickå€¼å®šä¹‰åœ¨modelåŒ…Tickç±»ä¸­
+		 * ÒÔÏÂÓÃµ½µÄtickÖµ¶¨ÒåÔÚmodel°üTickÀàÖĞ
 		 */
 		if(textTip.getStartTick() < textTip.getNowTick()
 			&& textTip.getNextTick() >= textTip.getNowTick()) {
 			
-			//æ ¹æ®å½“å‰è§’è‰²æ‰€åœ¨ä½ç½®æ¥å®šä¹‰çª—å£ä½ç½®
+			//¸ù¾İµ±Ç°½ÇÉ«ËùÔÚÎ»ÖÃÀ´¶¨Òå´°¿ÚÎ»ÖÃ
 			this.pointWindow.x = textTip.getPlayer().getX() + 45;
 			this.pointWindow.y = textTip.getPlayer().getY() + 10;
 			
@@ -62,17 +62,17 @@ public class TextTip extends Layer{
 					pointWindow.y + bg.getHeight(null), 0, 0, bg.getWidth(null),
 					bg.getHeight(null), null);
 			
-			//ç»˜åˆ¶æ–‡å­—ï¼Œå®ç°åœ¨ä¸‹é¢
+			//»æÖÆÎÄ×Ö£¬ÊµÏÖÔÚÏÂÃæ
 			drawString(g);
 		}
 	}
 	
 	/**
-	 * ç»˜åˆ¶æ–‡å­—æ–¹æ³•
+	 * »æÖÆÎÄ×Ö·½·¨
 	 */
 	private void drawString(Graphics g) {
 		String str = this.textTip.getTipString();
-		int maxSize = 13; //æ­¤å›¾ç‰‡ä¸­æ¯è¡Œæœ€å¤šå®¹çº³13ä¸ªå­—ç¬¦
+		int maxSize = 13; //´ËÍ¼Æ¬ÖĞÃ¿ĞĞ×î¶àÈİÄÉ13¸ö×Ö·û
 		int posY = 32;
 		int front = 0;
 		int rear = maxSize;
@@ -83,28 +83,30 @@ public class TextTip extends Layer{
 			char[] temp = new char[maxSize];
 			
 			/** 
-			 * getChars() æ–¹æ³•å°†å­—ç¬¦ä»å­—ç¬¦ä¸²å¤åˆ¶åˆ°ç›®æ ‡å­—ç¬¦æ•°ç»„ã€‚
+			 * getChars() ·½·¨½«×Ö·û´Ó×Ö·û´®¸´ÖÆµ½Ä¿±ê×Ö·ûÊı×é¡£
 			 * getChars(int srcBegin, int srcEnd, char[] dst,  int dstBegin)
-			 * srcBegin â€”â€” å­—ç¬¦ä¸²ä¸­è¦å¤åˆ¶çš„ç¬¬ä¸€ä¸ªå­—ç¬¦çš„ç´¢å¼•ã€‚
-			 * srcEnd â€”â€” å­—ç¬¦ä¸²ä¸­è¦å¤åˆ¶çš„æœ€åä¸€ä¸ªå­—ç¬¦ä¹‹åçš„ç´¢å¼•ã€‚
-			 * dst â€”â€” ç›®æ ‡æ•°ç»„ã€‚
-			 * dstBegin â€”â€” ç›®æ ‡æ•°ç»„ä¸­çš„èµ·å§‹åç§»é‡ã€‚
+			 * srcBegin ¡ª¡ª ×Ö·û´®ÖĞÒª¸´ÖÆµÄµÚÒ»¸ö×Ö·ûµÄË÷Òı¡£
+			 * srcEnd ¡ª¡ª ×Ö·û´®ÖĞÒª¸´ÖÆµÄ×îºóÒ»¸ö×Ö·ûÖ®ºóµÄË÷Òı¡£
+			 * dst ¡ª¡ª Ä¿±êÊı×é¡£
+			 * dstBegin ¡ª¡ª Ä¿±êÊı×éÖĞµÄÆğÊ¼Æ«ÒÆÁ¿¡£
 			 */
-			str.getChars(front, rear, temp, 0);//æ¥æ”¶è¦è¾“å‡ºçš„å­—ç¬¦
-			//char[] è½¬æ¢æˆString
+			str.getChars(front, rear, temp, 0);//½ÓÊÕÒªÊä³öµÄ×Ö·û
+			//char[] ×ª»»³ÉString
 			String s = new String(temp);
 			g.drawString(s, pointWindow.x + 20, pointWindow.y + posY);
 			front = rear;
 			rear += maxSize;
-			posY += 20;//æ§åˆ¶æ¯è¡Œè¾“å‡ºçš„é—´è·
+			posY += 20;//¿ØÖÆÃ¿ĞĞÊä³öµÄ¼ä¾à
 		}
 	}
 
 	@Override
 	public void stratPanel() {
-		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
 	}
 	
-	//å»æ„Ÿå¹å·è‡ªåŠ¨æ·»åŠ çš„
+	//È¥¸ĞÌ¾ºÅ×Ô¶¯Ìí¼ÓµÄ
 	private static final long serialVersionUID = 1L;
 }
+	
+

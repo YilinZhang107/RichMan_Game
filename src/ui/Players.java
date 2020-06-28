@@ -8,19 +8,19 @@ import control.GameRunning;
 import model.PlayerModel;
 
 /**
- * ç©å®¶ä½ç½®æ•°æ®æ›´æ–°å±‚
+ * Íæ¼ÒÎ»ÖÃÊı¾İ¸üĞÂ²ã
  * 
- * @author å–ç‡•éº¦ç²¥çš„107
+ * @author ºÈÑàÂóÖàµÄ107
  *
  */
 public class Players extends Layer{
 	
 	private GameRunning run = null;
 	
-	//ç©å®¶é“¾è¡¨
+	//Íæ¼ÒÁ´±í
 	private List<PlayerModel> players = null;
 	
-	//ä¸¤ä¸ªæ„é€ æ–¹æ³•
+	//Á½¸ö¹¹Ôì·½·¨
 	protected Players(int x, int y, int w, int h) {
 		super(x, y, w, h);
 	}
@@ -32,35 +32,35 @@ public class Players extends Layer{
 	}
 	
 	/**
-	 * ç»˜åˆ¶ç©å®¶åœ¨åœ°å›¾ä¸­çš„æƒ…å†µ
-	 * æ­¤å¤„è‹¥å¤šç©å®¶ä¹Ÿè®¸å¯ä»¥ç›´æ¥æ·»åŠ 
+	 * »æÖÆÍæ¼ÒÔÚµØÍ¼ÖĞµÄÇé¿ö
+	 * ´Ë´¦Èô¶àÍæ¼ÒÒ²Ğí¿ÉÒÔÖ±½ÓÌí¼Ó
 	 */
 	public void paint(Graphics g) {
-		//ä½¿ç”¨å¾ªç¯ä¸€ä¸ªä¸€ä¸ªç»˜åˆ¶
+		//Ê¹ÓÃÑ­»·Ò»¸öÒ»¸ö»æÖÆ
 		for(PlayerModel temp : players) {
 			paintPlayer(temp, g);
 		}
 	}
 	
 	/**
-	 * ç»˜åˆ¶å•ä¸ªç©å®¶æ–¹æ³•
+	 * »æÖÆµ¥¸öÍæ¼Ò·½·¨
 	 */
 	private void paintPlayer(PlayerModel player, Graphics g) {
-		//åˆ¤æ–­æ˜¯å¦ä¸ºå½“å‰ç©å®¶
+		//ÅĞ¶ÏÊÇ·ñÎªµ±Ç°Íæ¼Ò
 		boolean show = true;
 		
-		//è°ƒç”¨PlayerModelç±»ä¸­çš„æ–¹æ³•è°ƒç”¨å›¾ç‰‡
+		//µ÷ÓÃPlayerModelÀàÖĞµÄ·½·¨µ÷ÓÃÍ¼Æ¬
 		Image temp = player.getIMG("mini");
 		
-		//å¦‚æœæ­¤æ—¶è½®åˆ°è¯¥åç©å®¶ï¼Œä½¿ç”¨èº«ä¸Šå‡ºç°è“å…‰çš„å›¾ç‰‡(mini_on)
+		//Èç¹û´ËÊ±ÂÖµ½¸ÃÃûÍæ¼Ò£¬Ê¹ÓÃÉíÉÏ³öÏÖÀ¶¹âµÄÍ¼Æ¬(mini_on)
 		if(player.equals(this.run.getNowPlayer())) {
 			temp = player.getIMG("mini_on");
 		}
 		else { 
-			//æ­¤å¤„çš„åˆ¤æ–­åœ¨å¤šç©å®¶æ—¶å¯èƒ½éœ€è¦æ›´æ”¹ï¼Œä¸èƒ½ç®€å•çš„getOtherPlayer
+			//´Ë´¦µÄÅĞ¶ÏÔÚ¶àÍæ¼ÒÊ±¿ÉÄÜĞèÒª¸ü¸Ä£¬²»ÄÜ¼òµ¥µÄgetOtherPlayer
 			if(this.x == player.getOtherPlayer().getX()
 					&& this.y == player.getOtherPlayer().getY()) {
-				//é‡åˆä¸æ˜¾ç¤º
+				//ÖØºÏ²»ÏÔÊ¾
 				show = false;
 			}
 		}
@@ -72,9 +72,9 @@ public class Players extends Layer{
 
 	@Override
 	public void stratPanel() {
-		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
 	}
 	
-	//å»æ„Ÿå¹å·è‡ªåŠ¨ç”Ÿæˆçš„
+	//È¥¸ĞÌ¾ºÅ×Ô¶¯Éú³ÉµÄ
 	private static final long serialVersionUID = 1L;
-}
+}	

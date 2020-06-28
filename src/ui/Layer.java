@@ -7,47 +7,47 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * ç»˜åˆ¶å±‚ç±» ï¼š èƒŒæ™¯åˆ·æ–°ç±»ï¼ŒåœŸåœ°ã€æˆ¿å±‹ã€ç©å®¶åˆ·æ–°ç±»ï¼Œä¿¡æ¯æç¤ºæ¡†  çš„æŠ½è±¡ç±»
+ * »æÖÆ²ãÀà £º ±³¾°Ë¢ĞÂÀà£¬ÍÁµØ¡¢·¿Îİ¡¢Íæ¼ÒË¢ĞÂÀà£¬ĞÅÏ¢ÌáÊ¾¿ò  µÄ³éÏóÀà
  * 
- * ç»§æ‰¿Panelå®¹å™¨ç±»
+ * ¼Ì³ĞPanelÈİÆ÷Àà
  * 
- * @author å–ç‡•éº¦ç²¥çš„107
+ * @author ºÈÑàÂóÖàµÄ107
  */
 
 public abstract class Layer extends JPanel{
 
 	/**
-	 * çª—å£å·¦ä¸Šè§’xåæ ‡
+	 * ´°¿Ú×óÉÏ½Çx×ø±ê
 	 */
 	protected int x;
 	
 	/**
-	 * çª—å£å·¦ä¸Šè§’yåæ ‡
+	 * ´°¿Ú×óÉÏ½Çy×ø±ê
 	 */
 	protected int y;
 	
 	/**
-	 * çª—å£å®½åº¦
+	 * ´°¿Ú¿í¶È
 	 */
 	protected int width;
 	
 	/**
-	 * çª—å£é«˜åº¦
+	 * ´°¿Ú¸ß¶È
 	 */
 	protected int height;
 	
-	protected static final int PADDING = 5;  //ï¼Ÿï¼Ÿï¼Ÿ
-	protected static final int SIZE = 2;//æ§åˆ¶é—´è·çš„ï¼Ÿ
+	protected static final int PADDING = 5;  //£¿£¿£¿
+	protected static final int SIZE = 2;//¿ØÖÆ¼ä¾àµÄ£¿
 	protected static Image WINDOW_IMG = new ImageIcon("images/window/window.png").getImage();
 	protected static int WINDOW_W = WINDOW_IMG.getWidth(null);
 	protected static int WINDOW_H = WINDOW_IMG.getHeight(null);
 	
 	/**
-	 * Layerç±»æ„é€ å‡½æ•° ä¼ å…¥xï¼Œyåæ ‡å’Œçª—å£å®½åº¦é•¿åº¦
-	 * @param x å·¦ä¸Šè§’xåæ ‡
-	 * @param y	å·¦ä¸Šè§’yåæ ‡ 
-	 * @param width çª—å£å®½åº¦
-	 * @param height çª—å£é•¿åº¦
+	 * LayerÀà¹¹Ôìº¯Êı ´«Èëx£¬y×ø±êºÍ´°¿Ú¿í¶È³¤¶È
+	 * @param x ×óÉÏ½Çx×ø±ê
+	 * @param y	×óÉÏ½Çy×ø±ê 
+	 * @param width ´°¿Ú¿í¶È
+	 * @param height ´°¿Ú³¤¶È
 	 */
 	protected Layer(int x, int y, int width, int height) {
 		this.setBounds(x, y, width, height);
@@ -62,82 +62,82 @@ public abstract class Layer extends JPanel{
 		this.y = y;
 	}
 	
-	//è·å–å·¦ä¸Šè§’xåæ ‡
+	//»ñÈ¡×óÉÏ½Çx×ø±ê
 	public int getX() {
 		return x;
 	}
 	
-	//è·å–å·¦ä¸Šè§’yåæ ‡
+	//»ñÈ¡×óÉÏ½Çy×ø±ê
 	public int getY() {
 		return y;
 	}
 	
-	//è·å–çª—å£å®½åº¦
+	//»ñÈ¡´°¿Ú¿í¶È
 	public int getW() {
 		return width;
 	}
 	
-	//è·å–çª—å£é«˜åº¦
+	//»ñÈ¡´°¿Ú¸ß¶È
 	public int getH() {
 		return height;
 	}
 	
 	/**
-	 * è¾¹æ¡†ç»˜åˆ¶
+	 * ±ß¿ò»æÖÆ
 	 * drawImage:
-	 * IMG - è¦ç»˜åˆ¶çš„æŒ‡å®šå›¾åƒã€‚å¦‚æœ IMG ä¸º nullï¼Œåˆ™æ­¤æ–¹æ³•ä¸æ‰§è¡Œä»»ä½•æ“ä½œã€‚
-	 * dx1 - ç›®æ ‡çŸ©å½¢ç¬¬ä¸€ä¸ªè§’çš„ x åæ ‡ã€‚
-	 * dy1 - ç›®æ ‡çŸ©å½¢ç¬¬ä¸€ä¸ªè§’çš„ y åæ ‡ã€‚
-	 * dx2 - ç›®æ ‡çŸ©å½¢ç¬¬äºŒä¸ªè§’çš„ x åæ ‡ã€‚
-	 * dy2 - ç›®æ ‡çŸ©å½¢ç¬¬äºŒä¸ªè§’çš„ y åæ ‡ã€‚
-	 * sx1 - æºçŸ©å½¢ç¬¬ä¸€ä¸ªè§’çš„ x åæ ‡ã€‚
-	 * sy1 - æºçŸ©å½¢ç¬¬ä¸€ä¸ªè§’çš„ y åæ ‡ã€‚
-	 * sx2 - æºçŸ©å½¢ç¬¬äºŒä¸ªè§’çš„ x åæ ‡ã€‚
-	 * sy2 - æºçŸ©å½¢ç¬¬äºŒä¸ªè§’çš„ y åæ ‡ã€‚
-	 * observer - å½“ç¼©æ”¾å¹¶è½¬æ¢äº†æ›´å¤šå›¾åƒæ—¶è¦é€šçŸ¥çš„å¯¹è±¡ã€‚
-	 * è¿”å›ï¼š
-	 * å¦‚æœå›¾åƒåƒç´ ä»åœ¨æ”¹å˜ï¼Œåˆ™è¿”å› falseï¼›å¦åˆ™è¿”å› trueã€‚
+	 * IMG - Òª»æÖÆµÄÖ¸¶¨Í¼Ïñ¡£Èç¹û IMG Îª null£¬Ôò´Ë·½·¨²»Ö´ĞĞÈÎºÎ²Ù×÷¡£
+	 * dx1 - Ä¿±ê¾ØĞÎµÚÒ»¸ö½ÇµÄ x ×ø±ê¡£
+	 * dy1 - Ä¿±ê¾ØĞÎµÚÒ»¸ö½ÇµÄ y ×ø±ê¡£
+	 * dx2 - Ä¿±ê¾ØĞÎµÚ¶ş¸ö½ÇµÄ x ×ø±ê¡£
+	 * dy2 - Ä¿±ê¾ØĞÎµÚ¶ş¸ö½ÇµÄ y ×ø±ê¡£
+	 * sx1 - Ô´¾ØĞÎµÚÒ»¸ö½ÇµÄ x ×ø±ê¡£
+	 * sy1 - Ô´¾ØĞÎµÚÒ»¸ö½ÇµÄ y ×ø±ê¡£
+	 * sx2 - Ô´¾ØĞÎµÚ¶ş¸ö½ÇµÄ x ×ø±ê¡£
+	 * sy2 - Ô´¾ØĞÎµÚ¶ş¸ö½ÇµÄ y ×ø±ê¡£
+	 * observer - µ±Ëõ·Å²¢×ª»»ÁË¸ü¶àÍ¼ÏñÊ±ÒªÍ¨ÖªµÄ¶ÔÏó¡£
+	 * ·µ»Ø£º
+	 * Èç¹ûÍ¼ÏñÏñËØÈÔÔÚ¸Ä±ä£¬Ôò·µ»Ø false£»·ñÔò·µ»Ø true¡£
 	 */
 	public void createWindow(Graphics g) {
 		g.drawImage(WINDOW_IMG, 0, 0, 0 + SIZE, 0 + SIZE,
-				0, 0, SIZE, SIZE, null);//å·¦ä¸Šå›ºå®š
+				0, 0, SIZE, SIZE, null);//×óÉÏ¹Ì¶¨
 		
 		g.drawImage(WINDOW_IMG, 0 + SIZE, 0, 0 + width - SIZE, 0 + SIZE,
-				SIZE, 0, WINDOW_W - SIZE, SIZE, null);//ä¸­é—´
+				SIZE, 0, WINDOW_W - SIZE, SIZE, null);//ÖĞ¼ä
 		
 		g.drawImage(WINDOW_IMG, 0 + width - SIZE, 0, 0 + width, 0 + SIZE,
-				WINDOW_W-SIZE, 0, WINDOW_W, SIZE, null);// å³ä¸Šå›ºå®š
+				WINDOW_W-SIZE, 0, WINDOW_W, SIZE, null);// ÓÒÉÏ¹Ì¶¨
 		
 		g.drawImage(WINDOW_IMG, 0, 0+SIZE, 0+SIZE, 0+height-SIZE,
-				0, SIZE, SIZE, WINDOW_H-SIZE, null);// ä¸­å³
+				0, SIZE, SIZE, WINDOW_H-SIZE, null);// ÖĞÓÒ
 		
 		g.drawImage(WINDOW_IMG, 0+SIZE, 0+SIZE, 0+width-SIZE, 0+height-SIZE,
-				SIZE, SIZE, WINDOW_W-SIZE, WINDOW_H-SIZE, null);// ä¸­ä¸­
+				SIZE, SIZE, WINDOW_W-SIZE, WINDOW_H-SIZE, null);// ÖĞÖĞ
 		
 		g.drawImage(WINDOW_IMG, 0+width-SIZE, 0+SIZE, 0+width, 0+height-SIZE,
-				WINDOW_W-SIZE, SIZE, WINDOW_W, WINDOW_H-SIZE, null);// ä¸­å³
+				WINDOW_W-SIZE, SIZE, WINDOW_W, WINDOW_H-SIZE, null);// ÖĞÓÒ
 		
 		g.drawImage(WINDOW_IMG, 0, 0+height-SIZE, 0+SIZE, 0+height,
-				0, WINDOW_H-SIZE, SIZE, WINDOW_H, null);// ä¸‹å·¦
+				0, WINDOW_H-SIZE, SIZE, WINDOW_H, null);// ÏÂ×ó
 		
 		g.drawImage(WINDOW_IMG, 0+SIZE, 0+height-SIZE, 0+width-SIZE, 0+height,
-				SIZE, 50-SIZE, WINDOW_W-SIZE, WINDOW_H, null);// ä¸‹ä¸­
+				SIZE, 50-SIZE, WINDOW_W-SIZE, WINDOW_H, null);// ÏÂÖĞ
 		
 		g.drawImage(WINDOW_IMG, 0+width-SIZE, 0+height-SIZE, 0+width, 0+height,
-				WINDOW_W - SIZE, WINDOW_H - SIZE, WINDOW_W, WINDOW_H, null);// ä¸‹å³
+				WINDOW_W - SIZE, WINDOW_H - SIZE, WINDOW_W, WINDOW_H, null);// ÏÂÓÒ
 	}
 	
 	/**
-	 * å®šä¹‰çš„æŠ½è±¡æ–¹æ³•
-	 * ç»˜åˆ¶å›¾ç‰‡
+	 * ¶¨ÒåµÄ³éÏó·½·¨
+	 * »æÖÆÍ¼Æ¬
 	 */
 	abstract public void paint(Graphics g);
 	
 	/**
-	 * å¼€å§‹æ¸¸æˆpanelè®¾ç½®
+	 * ¿ªÊ¼ÓÎÏ·panelÉèÖÃ
 	 */
 	abstract public void stratPanel();
 	
-	//ä¸ºäº†å»æ„Ÿå¹å·è‡ªåŠ¨åŠ çš„
+	//ÎªÁËÈ¥¸ĞÌ¾ºÅ×Ô¶¯¼ÓµÄ
 	private static final long serialVersionUID = 1L;
 }
