@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 
 import java.awt.Image;
@@ -79,7 +79,7 @@ public class LandModel extends Tick implements Port {
 	 */
 	public static Point prison = new Point(0, 0);
 	
-	public Image getLandsIMG(Image landsIMG)
+	public Image getLandsIMG()
 	{
 		return landsIMG;
 	}

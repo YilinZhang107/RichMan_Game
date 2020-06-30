@@ -21,7 +21,7 @@ public class TextTip extends Layer{
 	private TextTipModel textTip = null;
 	
 	//载入提示框图片
-	private Image bg = new ImageIcon("image/window/tip_01.png").getImage();
+	private Image bg = new ImageIcon("images/window/tip_01.png").getImage();
 	
 	/**
 	 * Point:点类
@@ -101,7 +101,7 @@ public class TextTip extends Layer{
 	}
 
 	@Override
-	public void stratPanel() {
+	public void startPanel() {
 		// TODO 自动生成的方法存根
 	}
 	

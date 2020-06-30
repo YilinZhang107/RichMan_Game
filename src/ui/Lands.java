@@ -70,7 +70,7 @@ public class Lands extends Layer{
 	}
 		
 	@Override
-	public void stratPanel() {
+	public void startPanel() {
 		// TODO 自动生成的方法存根	
 	}
 	

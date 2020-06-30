@@ -136,7 +136,7 @@ public abstract class Layer extends JPanel{
 	/**
 	 * 开始游戏panel设置
 	 */
-	abstract public void stratPanel();
+	abstract public void startPanel();
 	
 	//为了去感叹号自动加的
 	private static final long serialVersionUID = 1L;

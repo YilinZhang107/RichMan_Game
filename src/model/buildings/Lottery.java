@@ -1,8 +1,8 @@
 
-package Model.buildings;
+package model.buildings;
 
-import Model.PlayerModel;
-import Model.TextTipModel;
+import model.PlayerModel;
+import model.TextTipModel;
 import context.GameState;
 import control.Control;
 

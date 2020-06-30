@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 
 import util.FileUtil;
 
-import Model.buildings.Point;
+import model.buildings.Point;
 
 import control.Control;
 

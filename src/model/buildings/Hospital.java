@@ -1,11 +1,8 @@
 
-package Model.buildings;
+package model.buildings;
 
-
-import Model.LandModel;
-import Model.PlayerModel;
 import context.GameState;
-import control.Control;
+
 
 /**
  * 
@@ -18,10 +15,10 @@ import control.Control;
 public class Hospital extends Building {
 	
 	private String[] events = {
-			"流感。",
-			"精神病。",
-			"受伤。",
-			"看望住院好友。"
+			"在医院检查出流感。",
+			"碰上神经病患者，上前一起研究病情。",
+			"在医院门口被群殴，需要住院观察。",
+			"在医院看望住院好友。"
 	};
 	
 	public Hospital(int posX, int posY) {
@@ -33,6 +30,7 @@ public class Hospital extends Building {
 	}
 	@Override
 	public int getEvent() {
+		/*
 		this.player = player;
 		int days = (int) (Math.random() * 4) + 2;
 		player.setInHospital(days);
@@ -40,7 +38,7 @@ public class Hospital extends Building {
 		String text = events[random];
 		player.showTextTip(player.getName() + text + "停留" + (days - 1) + "天.", 3);
 		new Thread(this).start();
-		
+		*/
 		return GameState.HOSPITAL_EVENT;
 	}
 }

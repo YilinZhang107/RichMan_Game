@@ -51,4 +51,6 @@ public class JFrameGame extends JFrame{
 	public JPanelGame getPanelGame() {
 		return panelGame;
 	}
+	
+	private static final long serialVersionUID = 1L;
 }

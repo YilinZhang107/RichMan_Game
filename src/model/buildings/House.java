@@ -1,5 +1,5 @@
 
-package Model.buildings;
+package model.buildings;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -7,7 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import Model.PlayerModel;
+import model.PlayerModel;
 
 import context.GameState;
 import control.Control;
