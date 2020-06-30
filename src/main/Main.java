@@ -1,6 +1,5 @@
 package main;
 
-//import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import ui.JFrameGame;
