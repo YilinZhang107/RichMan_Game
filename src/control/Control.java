@@ -1,12 +1,10 @@
 package control;
 
-//import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.swing.JApplet;
 import javax.swing.JOptionPane;
 
 import model.BackgroundModel;
@@ -28,11 +26,13 @@ import model.buildings.Prison;
 import model.buildings.Shop_;
 import model.card.Card;
 import model.card.TortoiseCard;
-import music.Sounds;
+import music.Music;
 import ui.JPanelGame;
-import util.FileUtil;
 import util.MyThread;
 import context.GameState;
+
+
+
 
 /*
  * 游戏总控制 
@@ -80,7 +80,7 @@ public class Control {
 	//场景效果
 	private EffectModel effect = null;
 	// 音乐准备
-	private Sounds music = null;
+	private Music music = null;
 	
 	/**
 	 * 游戏计时器
@@ -136,7 +136,7 @@ public class Control {
 		
 		
 		// 创建一个播放器
-		this.music = new Sounds();
+		this.music = new Music();
 	}
 
 	/**
@@ -175,7 +175,7 @@ public class Control {
 		// panel 初始化
 		this.panel.startGamePanelInit();
 		// 游戏背景音乐
-		this.startMusic();;
+		this.startMusic();
 		// 游戏开始产生地图效果与start动画
 		this.effect.showImg("start");//有图形组快速刷新产生动画效果
 	}
@@ -185,7 +185,7 @@ public class Control {
 	 * 游戏背景音乐
 	 */
 	private void startMusic() {
-		music.playStartMusic();
+		music.start();
 	}
 	/*
 	 * 返回对象
@@ -1255,9 +1255,8 @@ public class Control {
 		this.panel.getRunning().moveToFront();
 		this.panel.getPlayerInfo().moveToFront();
 		this.panel.getEffect().moveToFront();
-		this.music.playEndMusic();
+		this.music.gameOver();
 		this.effect.showImg("timeover2");
 		
 	}
 }
-
