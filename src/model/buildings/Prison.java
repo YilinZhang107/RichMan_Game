@@ -1,4 +1,4 @@
-package Model.buildings;
+package model.buildings;
 
 import java.util.List;
 

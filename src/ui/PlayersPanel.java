@@ -50,7 +50,7 @@ public class PlayersPanel extends Layer{
 		};
 		
 		//头像（y += 60）+20
-		g.drawImage(player.getIMG("mini_02"), x-26+15, y-10, x-26+15+player.getIMG("mini-02").getWidth(null),
+		g.drawImage(player.getIMG("mini_02"), x-26+15, y-10, x-26+15+player.getIMG("mini_02").getWidth(null),
 				y-10+player.getIMG("mini_02").getHeight(null), 0, 0, player.getIMG("mini_02").getWidth(null),
 				player.getIMG("mini_02").getHeight(null), null);
 		y += 48;
@@ -74,7 +74,7 @@ public class PlayersPanel extends Layer{
 	}
 
 	@Override
-	public void stratPanel() {
+	public void startPanel() {
 		// TODO 自动生成的方法存根
 	}
 	

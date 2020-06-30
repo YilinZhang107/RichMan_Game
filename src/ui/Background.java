@@ -49,7 +49,7 @@ public class Background extends Layer{
 	}
 
 	@Override
-	public void stratPanel() {
+	public void startPanel() {
 		//自动生成的必须实现的方法
 		//getBg是model包BackgroundModel类的方法
 		this.bg = background.getBg();

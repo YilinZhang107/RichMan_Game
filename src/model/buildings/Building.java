@@ -1,12 +1,12 @@
 
-package Model.buildings;
+package model.buildings;
 
 import java.awt.Graphics;
 
-import Model.Port;
-import Model.PlayerModel;
 
-import control.Control;
+import model.PlayerModel;
+
+
 
 /**
  * 

@@ -1,7 +1,7 @@
 
-package Model.buildings;
+package model.buildings;
 
-import Model.PlayerModel;
+import model.PlayerModel;
 import context.GameState;
 import control.Control;
 

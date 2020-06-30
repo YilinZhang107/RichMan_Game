@@ -37,7 +37,7 @@ public class Event extends Layer{
 	}
 
 	@Override
-	public void stratPanel() {
+	public void startPanel() {
 		// TODO 自动生成的方法存根
 	}
 	

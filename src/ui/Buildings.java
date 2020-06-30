@@ -32,13 +32,13 @@ public class Buildings extends Layer{
 	 * house 图片1-5级别
 	 * 玩家1的房子
 	 */
-	private Image HOUSE_01 = new ImageIcon("images/buliding/house01.png").getImage();
+	private Image HOUSE_01 = new ImageIcon("images/building/house01.png").getImage();
 	
 	/**
 	 * house 图片1-5级别
 	 * 玩家2的房子
 	 */
-	private Image HOUSE_02 = new ImageIcon("images/buliding/house02.png").getImage();
+	private Image HOUSE_02 = new ImageIcon("images/building/house02.png").getImage();
 	
 	/**
 	 * 伪透明图片
@@ -94,7 +94,7 @@ public class Buildings extends Layer{
 	}
 
 	@Override
-	public void stratPanel() {
+	public void startPanel() {
 		this.building = this.informationBuilding.getBuilding();
 	}
 	

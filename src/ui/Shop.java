@@ -31,17 +31,17 @@ public class Shop extends JPanel{
 	/**
 	 * 商店背景
 	 */
-	private Image bg = new ImageIcon("image/shop/bg_ui.png").getImage();
+	private Image bg = new ImageIcon("images/shop/bg_ui.png").getImage();
 	
 	/**
 	 * 商店 卡片介绍背景 黑色
 	 */
-	private Image detialBg = new ImageIcon("image/shop/item_bg.png").getImage();
+	private Image detialBg = new ImageIcon("images/shop/item_bg.png").getImage();
 
 	/**
 	 * 商店 已有卡片展示栏
 	 */
-	private Image sideBarBg = new ImageIcon("image/shop/sidebar.png").getImage();
+	private Image sideBarBg = new ImageIcon("images/shop/sidebar.png").getImage();
 	
 	/**
 	 * 窗体所在点
@@ -69,7 +69,7 @@ public class Shop extends JPanel{
 	/**
 	 * 指向当前按下的卡片
 	 */
-	private int chooseCard = 1;
+	private int chooseCard = -1;
 	
 	private JPanelGame panel;
 	
@@ -79,7 +79,7 @@ public class Shop extends JPanel{
 	
 	private Point origin = new Point(); //全局的位置变量，用于表示鼠标在窗口上表示的位置
 	
-	private Shop(int x, int y, int w, int h, Control control, JPanelGame panel) {
+	protected Shop(int x, int y, int w, int h, Control control, JPanelGame panel) {
 		this.x = x;
 		this.y = y;
 		this.w = w;
@@ -244,7 +244,7 @@ public class Shop extends JPanel{
 		close.update(g);
 		if(showDetial) {
 			//画出显示详细介绍UI
-			drawDetialUI(g);
+			drawDetailUI(g);
 		}
 		buy.setEnabled(showDetial);
 		buy.update(g);
@@ -255,7 +255,7 @@ public class Shop extends JPanel{
 	/**
 	 * 画出显示详细介绍ui
 	 */
-	private void drawDetialUI(Graphics g) {
+	private void drawDetailUI(Graphics g) {
 		g.drawImage(detialBg, position.x+atWhere.x, position.y+atWhere.y,
 				position.x+atWhere.x+detialBg.getWidth(null),
 				position.y+atWhere.y+detialBg.getHeight(null), 0, 0,
@@ -325,7 +325,7 @@ public class Shop extends JPanel{
 		PlayerModel player = control.getRunning().getNowPlayer();
 		FontMetrics fm = g.getFontMetrics();
 		g.drawString(player.getNx()+"", 
-				position.x+151+90-fm.stringWidth(null),
+				position.x+151+90-fm.stringWidth(player.getNx()+""),
 				position.y+252+21*4+14);
 		g.drawString("   点卷", position.x+151, position.y+252+21*4+14);
 	}

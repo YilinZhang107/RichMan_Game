@@ -9,70 +9,70 @@ import model.PlayerModel;
 //import ui.JPanelGame;
 
 /**
- * æ¸¸æˆè¿è½¬å¤„ç†,åˆå§‹åŒ–å¯¹è±¡
+ * ÓÎÏ·ÔË×ª´¦Àí,³õÊ¼»¯¶ÔÏó
  */
 public class GameRunning {
 
 	/**
-	 * ç©å®¶åˆ—è¡¨
+	 * Íæ¼ÒÁĞ±í
 	 */
 	private List<PlayerModel> players = null;
 
 	/**
-	 * å½“å‰æ“ä½œç©å®¶
+	 * µ±Ç°²Ù×÷Íæ¼Ò
 	 */
 	private PlayerModel nowPlayer = null;
 
 	/**
-	 * éª°å­å½“å‰ç‚¹æ•°
+	 * ÷»×Óµ±Ç°µãÊı
 	 */
 	private int point;
 
 	/**
-	 * ç©å®¶ä½¿ç”¨å¡ç‰‡çŠ¶æ€
+	 * Íæ¼ÒÊ¹ÓÃ¿¨Æ¬×´Ì¬
 	 */
 	public static int STATE_CARD = 1;
 	/**
-	 * ç©å®¶å¡ç‰‡ä½œç”¨çŠ¶æ€
+	 * Íæ¼Ò¿¨Æ¬×÷ÓÃ×´Ì¬
 	 */
 	public static int STATE_CARD_EFFECT = 2;
 	/**
-	 * ç©å®¶æ·ç‚¹çŠ¶æ€
+	 * Íæ¼ÒÖÀµã×´Ì¬
 	 */
 	public static int STATE_THROWDICE = 3;
 	/**
-	 * ç©å®¶ç§»åŠ¨çŠ¶æ€
+	 * Íæ¼ÒÒÆ¶¯×´Ì¬
 	 */
 	public static int STATE_MOVE = 4;
 	/**
-	 * æ¸¸æˆç»ˆæ­¢çŠ¶æ€
+	 * ÓÎÏ·ÖÕÖ¹×´Ì¬
 	 */
 	public static int GAME_STOP = 5;
 	/**
-	 * ç©å®¶ç›®å‰çŠ¶æ€
+	 * Íæ¼ÒÄ¿Ç°×´Ì¬
 	 */
 	private int nowPlayerState;
 
 	/**
-	 * æ¸¸æˆè¿›è¡Œå¤©æ•°
+	 * ÓÎÏ·½øĞĞÌìÊı
 	 */
 	public static int day = 1;
 
 	/**
-	 * å½“å‰åœ°å›¾ä»£ç 
+	 * µ±Ç°µØÍ¼´úÂë
 	 */
 	public static int MAP = 1;
 	/**
-	 * æ¸¸æˆä¸Šé™å¤©æ•° - 1ä¸ºæ— ä¸Šé™
+	 * ÓÎÏ·ÉÏÏŞÌìÊı - 1ÎªÎŞÉÏÏŞ
 	 */
 	public static int GAME_DAY = -1;
 	/**
-	 * æ¸¸æˆé‡‘é’±ä¸Šçº¿ï¼ˆå³èƒœåˆ©æ¡ä»¶ï¼‰-1ä¸ºæ— ä¸Šé™
+	 * ÓÎÏ·½ğÇ®ÉÏÏß£¨¼´Ê¤ÀûÌõ¼ş£©-1ÎªÎŞÉÏÏŞ
 	 */
 	public static int MONEY_MAX = -1;
 
 	/**
-	 * åˆå§‹åŒ–ç©å®¶åˆå§‹é‡‘é’±
+	 * ³õÊ¼»¯Íæ¼Ò³õÊ¼½ğÇ®
 	 */
 	public static int PLAYER_CASH = 1000;
 
@@ -84,43 +84,43 @@ public class GameRunning {
 	}
 
 	/**
-	 * è·å¾—å½“å‰ç©å®¶çŠ¶æ€
+	 * »ñµÃµ±Ç°Íæ¼Ò×´Ì¬
 	 */
 	public int getNowPlayerState() {
 		return this.nowPlayerState;
 	}
 
 	/**
-	 * è½¬æ¢ç©å®¶çŠ¶æ€
+	 * ×ª»»Íæ¼Ò×´Ì¬
 	 */
 	public void nextState() {
-		// åˆ¤æ–­æ¸¸æˆæ˜¯å¦å¾—å‡ºç»“æœ
+		// ÅĞ¶ÏÓÎÏ·ÊÇ·ñµÃ³ö½á¹û
 		if (gameContinue()) {
 			if (this.nowPlayerState == STATE_CARD) {
-				// â€œæ·ç‚¹çŠ¶æ€â€
+				// ¡°ÖÀµã×´Ì¬¡±
 				this.nowPlayerState = STATE_CARD_EFFECT;
-				// å¡ç‰‡Effect
+				// ¿¨Æ¬Effect
 				this.control.cardsEffect();
 			} else if (this.nowPlayerState == STATE_CARD_EFFECT) {
-				// â€œå¡ç‰‡ç”Ÿæ•ˆçŠ¶æ€â€
+				// ¡°¿¨Æ¬ÉúĞ§×´Ì¬¡±
 				this.nowPlayerState = STATE_THROWDICE;
 			} else if (this.nowPlayerState == STATE_THROWDICE) {
-				// ç§»åŠ¨çŠ¶æ€
+				// ÒÆ¶¯×´Ì¬
 				this.nowPlayerState = STATE_MOVE;
 			} else if (this.nowPlayerState == STATE_MOVE) {
-				// æ¢äººæ“ä½œ
+				// »»ÈË²Ù×÷
 				this.nowPlayerState = STATE_CARD;
 				this.nextPlayer();
-				// äº§ç”Ÿä¸€ä¸ªç‚¹æ•°
+				// ²úÉúÒ»¸öµãÊı
 				this.setPoint((int) (Math.random() * 6));
-				// å®Œæ¯•åæ‰§è¡Œä¸‹ä¸€ä¸ªç©å®¶çš„åŠ¨ä½œ - STATE_CARD
+				// Íê±ÏºóÖ´ĞĞÏÂÒ»¸öÍæ¼ÒµÄ¶¯×÷ - STATE_CARD
 				this.control.useCards();
 			}
 		}
 	}
 
 	/**
-	 * è·å–å½“å‰ç©å®¶
+	 * »ñÈ¡µ±Ç°Íæ¼Ò
 	 */
 	public PlayerModel getNowPlayer() {
 		return this.nowPlayer;
@@ -131,45 +131,45 @@ public class GameRunning {
 	}
 
 	/**
-	 * è·å–éå½“å‰ç©å®¶
+	 * »ñÈ¡·Çµ±Ç°Íæ¼Ò
 	 */
 	public PlayerModel getNotNowPlayer() {
 		return this.nowPlayer.equals(this.players.get(0)) ? this.players.get(1): this.players.get(0);
 	}
 
 	/**
-	 * æ¢äººæ“ä½œ
+	 * »»ÈË²Ù×÷
 	 */
 	private void nextPlayer() {
-		// å‡å°‘æ—¶é—´,åŒ»é™¢ï¼Œç›‘ç‹±
+		// ¼õÉÙÊ±¼ä,Ò½Ôº£¬¼àÓü
 		if (this.nowPlayer.getInPrison() > 0) {
 			this.nowPlayer.setInPrison(this.nowPlayer.getInPrison() - 1);
 		}
 		if (this.nowPlayer.getInHospital() > 0) {
 			this.nowPlayer.setInHospital(this.nowPlayer.getInHospital() - 1);
 		}
-		// æ¢äºº
+		// »»ÈË
 		if (this.nowPlayer.equals(this.players.get(0))) {
 			this.nowPlayer = this.players.get(1);
 		} else {
 			this.nowPlayer = this.players.get(0);
-			// ç»“æŸåæ¸¸æˆå¤©æ•°å¢åŠ 
+			// ½áÊøºóÓÎÏ·ÌìÊıÔö¼Ó
 			day++;
 		}
 	}
 
 	/**
-	 * åˆ¤æ–­æ¸¸æˆæ˜¯å¦ç»“æŸ
+	 * ÅĞ¶ÏÓÎÏ·ÊÇ·ñ½áÊø
 	 */
 	public boolean gameContinue() {
 		PlayerModel p1 = this.nowPlayer;
 		PlayerModel p2 = this.nowPlayer.getOtherPlayer();
-		// å¤©æ•°
+		// ÌìÊı
 		if (GAME_DAY > 0 && day >= GAME_DAY) {
 			this.control.gameOver();
 			return false;
 		}
-		// æœ€å¤§é‡‘é’±
+		// ×î´ó½ğÇ®
 		if (MONEY_MAX > 0 && p1.getCash() >= MONEY_MAX) {
 			this.control.gameOver();
 			return false;
@@ -177,7 +177,7 @@ public class GameRunning {
 			this.control.gameOver();
 			return false;
 		}
-		// ç ´äº§
+		// ÆÆ²ú
 		if (p1.getCash() < 0) {
 			this.control.gameOver();
 			return false;
@@ -205,16 +205,16 @@ public class GameRunning {
 	}
 
 	/**
-	 * å¼€å§‹æ¸¸æˆè®¾ç½®ï¼Œåˆå§‹åŒ–
+	 * ¿ªÊ¼ÓÎÏ·ÉèÖÃ£¬³õÊ¼»¯
 	 */
 	public void startGameInit() {
-		// è®¾å®šå½“å‰æ¸¸æˆç©å®¶
+		// Éè¶¨µ±Ç°ÓÎÏ·Íæ¼Ò
 		this.nowPlayer = this.players.get(0);
-		// è®¾å®šå½“å‰ç©å®¶çŠ¶æ€ä¸ºâ€œä½¿ç”¨å¡ç‰‡â€
+		// Éè¶¨µ±Ç°Íæ¼Ò×´Ì¬Îª¡°Ê¹ÓÃ¿¨Æ¬¡±
 		this.nowPlayerState = STATE_CARD;
-		// éšæœºè®¾å®šç‚¹æ•°
+		// Ëæ»úÉè¶¨µãÊı
 		this.setPoint((int) (Math.random() * 6));
-		// é¦–ä¸ªç©å®¶ä½¿ç”¨å¡ç‰‡
+		// Ê×¸öÍæ¼ÒÊ¹ÓÃ¿¨Æ¬
 		this.control.useCards();
 	}
 
