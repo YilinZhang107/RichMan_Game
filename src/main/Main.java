@@ -11,7 +11,7 @@ public class Main {
 	// 窗体外观显示设置样式，必须在窗体使用之前进行设置
 	static {//确保先进行Look&Feel设置
 		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (Exception e1) {}//捕获异常
 	}
 
